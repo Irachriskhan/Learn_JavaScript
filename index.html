@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <style>
+        body{
+            background-color: cadetblue;
+            text-align: center;
+            padding-top: 100px;
+            color: white;
+        }
+        #hey{
+            color: rgb(255, 255, 0);
+        }
+        .btn{
+            font-size: 2rem;
+            background-color: lightgrey;
+            text-transform: uppercase;
+        }
+        .text{
+            font-size: 2rem;
+            background-color: chocolate;
+        }
+        .colors{
+            color: blueviolet;
+            letter-spacing: 1rem;
+        }
+        .borders{
+            border: 4px dashed white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 id="title"> JavaScript Course</h1>
+        <h1> By Jonas & Jonathan</h1>
+        <h1>Additional resources are : Eloquant & Code-Wars</h1>
+    </div>
+    <div class="main" id="main">
+        <div class="buttons">
+            <button id="prevBtn" class="btn">Prev</button>
+        </div>
+        <form action="#">
+            <input type="text" id="fname">
+            <button onclick="login()">TEST</button>
+        </form><br><br>
+        <div class="buttons">
+            <button id="nextBtn" class="btn">Next</button>
+        </div>
+    </div>
+    <section class="section">
+        <div class="text">
+            <h1 id="first">The first section</h1>
+            <h1 id="second">The second section</h1>
+            <h1 id="third">The third section</h1>
+        </div>
+        <div class="colors">
+            <h1 id="first-color">The first section of colors</h1>
+        </div>
+        <div id="siblings">
+            <h1>The first child of the siblings class</h1>
+        </div>
+    </section>
+    <section class="section1">
+        <ul id="studentsList">
+            <li>Student 1</li>
+            <li>Student 2</li>
+            <li>Student 3</li>
+            <li>Student 4</li>
+        </ul>
+
+    </section>
+    <section>
+        <div class="container">
+            <ul class="unordered-list">
+                <li>List 1</li>
+                <li>List 2</li>
+                <li>List 3</li>
+                <li>List 4</li>
+                <li>List 5</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <form id="form" action="">
+            <label for="names">Names</label> <input type="text" name="" id="fullnames"><br>
+            <label for="names">Email</label> <input type="email" name="" id="email"><br>
+            <label for="names">Username</label> <input type="text" name="" id="username"><br>
+            <label for="names">Password</label> <input type="password" name="" id="password"><br>
+            <input type="submit" id="submit" value="Sumit">
+        </form>
+    </section>
+
+
+    <!-- <script src="./scripts_and_katas/jonas-script.js"></script> -->
+    <!-- <script src="./scripts_and_katas/codekatas.js"></script> -->
+    <!-- <script src="./scripts_and_katas/alightCS.js"></script> -->
+    <script src="./scripts_and_katas/examples.js"></script>
+</body>
+</html>
