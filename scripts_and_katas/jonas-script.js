@@ -235,7 +235,7 @@ console.log(measureKevin())
 
 
 
-// ------------- CALL BACK FUNVTION 
+// ------------- CALL BACK FUNCTION 
 
 const oneWord = function (str){
     return str.replace(/ /g, '').toLowerCase(); // (/ /g, '') : remove&replace blanck spaces by

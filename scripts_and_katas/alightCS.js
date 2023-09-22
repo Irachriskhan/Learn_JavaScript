@@ -366,3 +366,102 @@ setTimeout(showScore,1000, 'Khan', 90)
 const inter = setInterval(showScore,2000, 'Chris', 60) // stop the interval
 clearInterval(inter)
 
+
+// ------------------- Callbacks ------------------------------------------------------
+// The setTimeout() method is being used in this code to postpone the execution of a function. 
+function incrementDigits(num, callback) {
+    setTimeout(function() {
+        num++;
+        console.log(num);
+        if (num < 10) {
+            incrementDigits(num, callback);
+        } else {
+            callback();
+        }
+    }, 1000);
+}
+
+function outPout() {
+    console.log('done!');
+}
+
+incrementDigits(0, outPout); // calling
+
+// --------------------------- Promise ---------------------------------------------
+// An async promise operation’s eventual success or failure is represented as a JavaScript object. 
+// An asynchronous operation is still in progress while a promise is still unfulfilled. promise fulfillment 
+// indicates the successful completion of an asynchronous operation. Using the promise constructor, you could
+//  make a promise in the following way:
+
+
+let promise = new Promise(function (resolve, reject) {
+  // create a new promise to resolve or reject
+});
+
+// The constructor function takes a function as an argument. This function is called the executor function.
+
+// Promise constructor as an argument
+
+// function(resolve, reject) {
+//     // doSomethingHere
+// }
+
+const incrementDigits = (num) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      num++;
+      console.log(num);
+      if (num < 10) {
+        resolve(incrementDigits(num));
+      } else {
+        resolve("done!");
+      }
+    }, 1000);
+  });
+};
+
+incrementDigits(0).then((res) => console.log(res));
+
+// Other example
+
+function myDisplayer(some) {
+  console.log(some);
+}
+
+let myPromise = new Promise( (myResolve, myReject) => {
+  let x = 0;
+
+  // some code (try to change x to 5)
+
+  if (x == 0) {
+    myResolve("OK");
+  } else {
+    myReject("Error");
+  }
+});
+
+myPromise.then(
+  function (value) {
+    myDisplayer(value);
+  },
+  function (error) {
+    myDisplayer(error);
+  }
+);
+
+// ------------------------- ASYNCHRONOUS -------------------------------
+// Asynchronous is a mechanism that allow Javascript to execute one function in the background so that it 
+// cannot interrupt the control flow of other codes.
+
+boilingWater(1000)
+console.log("chop the carrots");
+for (let i = 0; i < 10; i++){
+  console.log('Wait...')
+}
+
+const boilingWater = time =>{
+  console.log('boiling the carrots')
+  setTimeout(()=>{
+    console.log('ready to eat!')
+  }, time)
+}
