@@ -544,7 +544,7 @@ promises.then((data) => {
 
 // -------------------------------------------------------------------------------
 
-const heading_1 = document.querySelector('.headi1'); // you can remove the class to make an erroe
+const heading_1 = document.querySelector('.heading_1'); // you can remove the class to make an erroe
 const heading_2 = document.querySelector(".heading_2");
 const heading_3 = document.querySelector(".heading_3");
 const btn = document.querySelector('.btn');
@@ -585,3 +585,31 @@ btn.addEventListener("click", async () => {
   }
 });
 
+// ------------------ AJAX ---------------------------------------------
+// AJAX stand for Asynchronous Javascript And XML 
+// HTTP Request: communicate btween the client and the server
+// API : Application Programming Interface
+
+const gererateText = document.querySelector(".gereratetext");
+
+
+
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "../api/sample.txt"); // Accessing the file
+  // console.log(xhr); // the readyState is 1 ==> file is found
+  //  xhr.onreadystatechange = function()
+  gererateText.addEventListener("click",function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      const text = document.createElement("p");
+      text.textContent = xhr.responseText;
+      document.body.appendChild(text);
+      console.log("done");
+    } else {
+      console.log({ status: xhr.status, Text: this.statusText });
+    }
+    // console.log(xhr);
+  });
+  xhr.send();
+// console.log(xhr);
+console.log('---------------------------------------------------------------------------');
