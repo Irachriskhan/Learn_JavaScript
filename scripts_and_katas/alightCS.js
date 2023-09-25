@@ -406,13 +406,13 @@ let promise = new Promise(function (resolve, reject) {
 //     // doSomethingHere
 // }
 
-const incrementDigits = (num) => {
+const incrementDigitz = (num) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       num++;
       console.log(num);
       if (num < 10) {
-        resolve(incrementDigits(num));
+        resolve(incrementDigitz(num));
       } else {
         resolve("done!");
       }
@@ -420,7 +420,7 @@ const incrementDigits = (num) => {
   });
 };
 
-incrementDigits(0).then((res) => console.log(res));
+incrementDigitz(0).then((res) => console.log(res));
 
 // Other example
 
@@ -454,14 +454,134 @@ myPromise.then(
 // cannot interrupt the control flow of other codes.
 
 boilingWater(1000)
-console.log("chop the carrots");
-for (let i = 0; i < 10; i++){
-  console.log('Wait...')
+console.log("boiling the carrots");
+for (let i = 0; i < 10; i++) {
+  console.log("Wait...");
 }
 
-const boilingWater = time =>{
-  console.log('boiling the carrots')
-  setTimeout(()=>{
-    console.log('ready to eat!')
-  }, time)
+function boilingWater(time) {
+  console.log("chop the carrots");
+  setTimeout(() => {
+    console.log("ready to eat!");
+  }, time);
 }
+
+ // CALLBACKS
+let posts = [
+  { title: "Post One", body: "This is the post One" },
+  { title: "Post Two", body: "This is the post Two" }
+];
+
+function getPosts(){
+  setTimeout(()=>{
+    let outPuts = '';
+    posts.forEach((post, index) =>{
+      outPuts += `<li>${post.title}</li>`
+    });
+    // document.body.innerHTML = outPuts;
+    console.log(outPuts);
+  }, 1000)
+}
+
+// Without the callback, the createPost is not executed
+function createPost(post, callback){
+  setTimeout(() => {
+    posts.push(post);
+    callback();
+  }, 2000);
+}
+
+createPost({ title: "Post Three", body: "This is post three" }, getPosts);
+
+// ---------------------------------- PROMISES ------------------------
+function getPostz() {
+  setTimeout(() => {
+    let outPuts = "";
+    posts.forEach((post, index) => {
+      outPuts += `<li>${post.title}</li>`;
+    });
+    // document.body.innerHTML = outPuts;
+    console.log(outPuts);
+  }, 1000);
+}
+
+// Without the callback, the createPost is not executed
+function createPostz(post) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      posts.push(post);
+
+      const error = false;
+
+      if (!error){
+        resolve();
+      }else{
+        reject('ERROR: Something went wrong!')
+      }
+    }, 2000);
+  })
+}
+
+createPostz({ title: "Post Three", body: "This is post three" }).then(getPostz);
+
+// --------------------------------------------------------------------
+let promises = new Promise((resolve, reject) => {
+  let value = true;
+
+  if (value){
+    resolve('The data is accessible')
+  }else{
+    reject('This is an error!')
+  }
+});
+
+// PROMISES EXPLAINED
+promises.then((data) => {
+  console.log(data);
+}).catch((data) => {
+  console.log(data)
+});
+
+// -------------------------------------------------------------------------------
+
+const heading_1 = document.querySelector('.headi1'); // you can remove the class to make an erroe
+const heading_2 = document.querySelector(".heading_2");
+const heading_3 = document.querySelector(".heading_3");
+const btn = document.querySelector('.btn');
+// Calling the then 
+// btn.addEventListener('click', () => {
+//   addColor(1000, heading_1, "red")
+//   .then(() => addColor(2000, heading_2, "green"))
+//   .then(() => addColor(1000, heading_3, "blue"));
+// })
+
+function addColor(time, element, color){
+  return new Promise((resolve, reject) => {
+    if (element){
+      setTimeout(() => {
+        element.style.color = color;
+        resolve()
+      }, time)
+    }else{
+      // Accessing the error in Promise
+      reject(new Error(`There is no such element ${element}`)) 
+    }
+  });
+}
+
+// --------------------------- AWAIT/ ASYNC -----------------------
+// Await waits till promise is settled
+// Error handling - try/catch
+// Cons: It cannot grab the data reassigned to a variable
+
+// We MODIFIED THE CODES ABOVES
+btn.addEventListener("click", async () => {
+  try{
+    await addColor(1000, heading_1, "red");
+    await addColor(2000, heading_2, "green");
+    await addColor(1000, heading_3, "blue");
+  }catch (error){
+    console.log(error) // Catching the ERROR in async
+  }
+});
+
