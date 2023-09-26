@@ -1,0 +1,6 @@
+[
+    {"name" : "John", "id" : 1, "car" : ["volvo", "BMW"]},
+    {"name" : "Peter", "id" : 2, "car" : ["toyota", "nissan"]},
+    {"name" : "Anna", "id" : 3, "car" : ["tata", "hilux"]},
+    {"name" : "Suzan", "id" : 4, "car" : ["prado", "corolla"]}
+]
