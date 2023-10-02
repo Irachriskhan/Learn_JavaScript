@@ -1,15 +1,35 @@
-Mission
-1. Youth4Change is a club of environment and climate activists
-2. Organize meetings and social activities
-3. Mahama refugees and the host community
-4. Mobilize and Inspire refugees youth to fight the climate change 
+MISSION
 
-We empower the youth to save the environment and the climate change 
-while saving our families by mobilizing the refugee community, 
+[{{{{{{
+    1. Youth4Change is a club of environment and climate activists
+    2. Organize meetings and social activities
+    3. Mahama refugees and the host community
+    4. Mobilize and Inspire refugees youth to fight the climate change 
+}}}}}}]
+
+The mission includes:
+1. the purpose of the Organization
+2. Its scope of operations
+3. The basis of  its competitive adantages 
+
+Samples:
+
+1. Mobilize and Inspire refugees youth to fight the climate change and make 
+the world green through meetings and collective works.
+
+2. Empower the youth with the knowledge of saving the environment and the climate change 
+while saving our local communitythrough meetings and collective works.
+
+// ----------------------------------------------------------------------
+OBJECTIVES
+Used to operationalize the mission Stmt 
+Provide guidance on how the org can achieve its vision and mission 
+they follow the SMART method: Specific Measurable Achievable Relevent Time-bound 
+
+Ex: Reduce volatilityair emmission 15 percent by 2025 from 2010 base year, indexed to net sales.
 
 
-Aim
+// ------------------------------------------------
+VISION
 
-
-Objectives
-- protect 
+Our vision is to create a green world that make people feel safe.

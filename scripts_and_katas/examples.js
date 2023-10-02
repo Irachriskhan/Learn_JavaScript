@@ -110,6 +110,7 @@ for (let umwana in umuryango) {
   // console.log(umwana)
   // console.log(umuryango[umwana]) // umwana is an expression
 }
+
 // ------------------------------------------ CONSTRUCTOR -------------------------------------------
 // Classes are a template for creating objects.
 // The constructor method is used for creating and initializing an object instance of that class.
@@ -168,7 +169,9 @@ let family = {
 
 // console.log(family.message())
 
-// Factory Function
+// FACTORY Function
+// A factory function is a function that returns a new object.
+// Use Object.create() to create an object using an existing object as a prototype.
 function createObject(size, stayWith) {
   return {
     familySize: size,
@@ -667,8 +670,8 @@ let obj = {
 Object.freeze(obj);
 obj.review = "bad";
 obj.newProp = "Test";
-console.log(obj);  // error
-// The obj.review and obj.newProp assignments will result in errors, because our editor runs in strict mode 
+console.log(obj); // error
+// The obj.review and obj.newProp assignments will result in errors, because our editor runs in strict mode
 // by default, and the console will display the value { name: "FreeCodeCamp", review: "Awesome" }.
 
 function freezeObj() {
@@ -794,16 +797,16 @@ half(stats);
 const profileUpdate = ({ name, age, nationality, location }) => {};
 
 // ------------------------ SPREAD OPERATOR -----------------------------------
-var boys = ['Ghad', 'Boyz', 'Tom'];
-var girls = ['Bebe', 'Gogo', 'Kiki'];
-var allPeople = [boys, girls, source]
+var boys = ["Ghad", "Boyz", "Tom"];
+var girls = ["Bebe", "Gogo", "Kiki"];
+var allPeople = [boys, girls, source];
 var spreadPeople = [...boys, ...girls, ...source];
 
-console.log(allPeople) // print 3 arrays in one array
-console.log(spreadPeople) // print a single array of values from 3 arrays
+console.log(allPeople); // print 3 arrays in one array
+console.log(spreadPeople); // print a single array of values from 3 arrays
 
 var newGirls = girls; // a chande(update of values) mage in newGils affect the original array = girls
-var newBoys = [...boys] // make an independent copy of boys
+var newBoys = [...boys]; // make an independent copy of boys
 
 // -------------------- SWAP VALUES OF VARIABLES --------------------------
 let ax = 8,
@@ -836,7 +839,7 @@ console.log(outPut);
 
 const getMousePosition = (x, y) => ({
   x: x,
-  y: y
+  y: y,
 });
 
 // Here is the same function from above rewritten to use this new syntax:
@@ -863,11 +866,11 @@ const createPerson1 = (name, age, gender) => {
 // ------------------------ JAVASCRIPT SYMBOL --------------------------
 // Symbols are immutable (cannot be changed) and are unique. For example,
 // creating symbol
-const value1 = Symbol('hello');
-const value2 = Symbol('hello');
+const value1 = Symbol("hello");
+const value2 = Symbol("hello");
 
 console.log(value1 === value2); // false
-console.log(value1) // Symbol(hello)
+console.log(value1); // Symbol(hello)
 
 // To access the description of a symbol, we use the . operator. For example,
 console.log(value1.description); // hello
@@ -877,10 +880,10 @@ console.log(value1.description); // hello
 let id = Symbol("id");
 
 let personId = {
-    name: "Jack",
+  name: "Jack",
 
-    // adding symbol as a key
-    [id]: 123 // not "id": 123
+  // adding symbol as a key
+  [id]: 123, // not "id": 123
 };
 
 console.log(personId); // {name: "Jack", Symbol(id): 123}
@@ -889,13 +892,9 @@ console.log(personId); // {name: "Jack", Symbol(id): 123}
 // The for...in loop does not iterate over Symbolic properties. For example,
 // using for...in
 for (let key in person) {
-    console.log(key);
+  console.log(key);
 }
 // OUTPUT: name age
-
-
-
-
 
 // -------------------------- ARRAY METHODS -------------------------------------
 //concat() method is used to join two or more arrays and returns a new array.
@@ -964,19 +963,7 @@ new Date(milliseconds);
 new Date(dateString);
 // [for example inauguration_day = new Date(97,8,15) ].
 
-new Date(
-  year,
-  month,
-  day,
-  hours,
-  minutes,
-  seconds,
-  milliseconds
-)// [for example inauguration_day = new Date(97,8,15,10,05,0) ].
-
-// -------------------- JAVASCRIPT DATE OBJECT - METHODS ------------------------
-
-.date
+new Date(year, month, day, hours, minutes, seconds, milliseconds).date // -------------------- JAVASCRIPT DATE OBJECT - METHODS ------------------------ // [for example inauguration_day = new Date(97,8,15,10,05,0) ].
   .getDate(); // Returns the day of the month (from 1-31).
 date.getDay(); // Returns the day of the week (from 0-6).
 date.getFullYear(); // Returns the year (four digits).

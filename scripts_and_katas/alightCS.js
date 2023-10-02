@@ -484,7 +484,7 @@ let posts = [
 function getPosts() {
   setTimeout(() => {
     let outPuts = "";
-    posts.forEach((post, index) => {
+    posts.forEach((post) => {
       outPuts += `<li>${post.title}</li>`;
     });
     // document.body.innerHTML = outPuts;
