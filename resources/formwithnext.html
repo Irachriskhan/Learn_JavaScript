@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <form action="#" class="form">
-        <h1 class="text-center">Registration Form</h1>
+    <form action="#" name="Form" class="form">
+        <h1 class=" text-center">Registration Form</h1>
         <!-- Progress bar -->
         <div class="progressbar">
             <div class="progress" id="progress"></div>
@@ -23,33 +23,53 @@
             <div class="progress-step" data-title="Password"></div>
         </div>
 
-        <!-- Steps -->
+        <!-- FORM IN Steps -->
         <div class="form-step form-step-active">
             <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" />
+                <label for="username">username</label>
+                <input type="text" name="name" id="name" />
+                <div class="error" id="nameErr"></div>
             </div>
             <div class="input-group">
                 <label for="position">Position</label>
                 <input type="text" name="position" id="position" />
             </div>
+            <div class="input-group">
+                <span>Gender</span>
+                <div id="gender">
+                    <label for="male"><input type="radio" name="gender" id="male" value="male" />Male</label>
+                    <label for="female"><input type="radio" name="gender" id="female" value="female" />Feale</label>
+                </div>
+                <div class="error" id="genderErr"></div>
+            </div>
             <div class="">
-                <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+                <a href="#" class="btn btn-next width-50 ml-auto introNext">Next</a>
             </div>
         </div>
 
         <div class="form-step">
             <div class="input-group">
-                <label for="phone">Phone</label>
-                <input type="text" name="phone" id="phone" />
+                <label for="mobile">Phone</label>
+                <input type="text" name="mobile" id="mobile" maxlength="10" />
+                <div class="error" id="mobileErr"></div>
             </div>
             <div class="input-group">
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email" />
+                <div class="error" id="emailErr"></div>
+            </div>
+            <div class="input-group">
+                <label for="country">Country</label>
+                <select name="country" id="country">
+                    <option value="Select">Select</option>
+                    <option value="Burundi">Burundi</option>
+                    <option value="Rwanda">Rwanda</option>
+                </select>
+                <div class="error" id="countryErr"></div>
             </div>
             <div class="btns-group">
                 <a href="#" class="btn btn-prev">Previous</a>
-                <a href="#" class="btn btn-next">Next</a>
+                <a href="#" class="btn btn-next contactNext">Next</a>
             </div>
         </div>
 
@@ -79,7 +99,7 @@
             </div>
             <div class="btns-group">
                 <a href="#" class="btn btn-prev">Previous</a>
-                <input type="submit" value="Submit" class="btn" />
+                <input type="submit" value="Submit" class="btn submitBtn" />
             </div>
         </div>
     </form>

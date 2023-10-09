@@ -154,3 +154,53 @@ input {
 .btn:hover {
     box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
 }
+
+.input-1 {
+    background-image: url(../images/check.png);
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    border: 1px solid #01cc40;
+}
+
+.input-2 {
+    background-image: url(../images/cancel.png);
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    border: 1px solid red;
+}
+
+.input-3 {
+    border: 1px solid #01cc40 !important;
+}
+
+select {
+    outline: none !important;
+}
+
+.input-4 {
+    border: 1px solid red;
+}
+
+.error {
+    color: red;
+    font-size: 90%;
+}
+
+input[type=text] {
+    outline: none;
+}
+
+select {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+    background-color: #a9bae64a;
+}
+
+input[type="submit"]:hover {
+    background: #bd432e;
+    border-color: #bd432e;
+}

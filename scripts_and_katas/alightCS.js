@@ -14,7 +14,8 @@ function callMe() {
 // passing function as an argument
 greet("Peter", callMe);
 
-// ------------------------ FOR EACH -------------------------------------
+// ------------------------ FOREACH -------------------------------------
+// The forEach() method executes a provided function once per array element.
 // forEach Method : it return elememnts of an array
 // forEach(callbackFn)
 // forEach(callbackFn, thisArg)
@@ -30,7 +31,48 @@ people.forEach(function (item) {
   console.log(item.age);
 });
 
+// Printing the contents of an array
+const logArrayElements = (element, index) => {
+  console.log(`a[${index}] = ${element}`);
+};
+[2, 5, , 9].forEach(logArrayElements); // index 2 is skipped bcs it is empty
+
+// Using forEach() on sparse arrays
+const arraySparse = [1, 3 /* empty */, , 7];
+let numCallbackRuns = 0;
+
+arraySparse.forEach((element) => {
+  console.log({ element });
+  numCallbackRuns++;
+});
+
+console.log({ numCallbackRuns });
+
+// Modifying the array during iteration
+// forEach() does not make a copy of the array before iterating.
+const words = ["one", "two", "three", "four"];
+
+words.forEach((word) => {
+  console.log(word); // one // two // four
+  if (word === "two") {
+    words.shift(); //'one' will delete from array
+  }
+});
+console.log(words); // ['two', 'three', 'four']
+
+const arrayLike = {
+  length: 3,
+  0: 2,
+  1: 3,
+  2: 4,
+  3: 5, // ignored by forEach() since length is 3
+};
+Array.prototype.forEach.call(arrayLike, (x) => console.log(x));
+
 // ---------- MAP METHOD ------------------------------
+// The map() method of Array instances creates a new array populated with the results
+// of calling a provided function on every element in the calling array.
+
 let newArray = people.map(function (item) {
   return `${item.name}`;
 });
@@ -506,7 +548,7 @@ createPost({ title: "Post Three", body: "This is post three" }, getPosts);
 function getPostz() {
   setTimeout(() => {
     let outPuts = "";
-    posts.forEach((post, index) => {
+    posts.forEach((post) => {
       outPuts += `<li>${post.title}</li>`;
     });
     // document.body.innerHTML = outPuts;
