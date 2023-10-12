@@ -1,16 +1,13 @@
 const http = require("http");
 
 const server = http.createServer((req, res) => {
-  if (req.url == "/") {
+  if (req.url === "/") {
     res.end("Welcome to our homepage");
   }
-  if (req.url == "/about") {
+  if (req.url === "/about") {
     res.end("Here is our about page");
   }
-  //   res.end(
-  //     `<h1>Ooops</h1>
-  //     <p>We cannot find the link yu specified</p>`
-  //   );
+  res.end("Page NOT FOUND");
 });
 server.listen(8080);
 
@@ -34,3 +31,6 @@ server.listen(8080);
 
 // to run the file
 // npm run dev
+
+// Event loop
+// They
