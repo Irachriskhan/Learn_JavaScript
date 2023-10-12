@@ -24,3 +24,13 @@ server.listen(8080);
 // package json - manifest filr (store important info about proj/pkg)
 // it is installed manually in the root folder of te project
 // npm init -y (everything default)
+
+// installing nodemon for restarting the server automatically after every change
+// npm install nodemon  --save-dev
+
+// In the package.json file add the following changes in the script property
+// "start": "",
+// "dev": "nodemon app.js"
+
+// to run the file
+// npm run dev
