@@ -27,7 +27,8 @@ console.log(jeanne.talk());
 // Here, if we add a new function it willl bw kept as a simple property
 // Here, the __proto__ is empty
 //
-function SomePerson() {
+function SomePerson(name) {
+  this.name = name;
   this.age = 34;
   this.talk = function () {
     return "Hey! I am talking!!";
@@ -35,8 +36,8 @@ function SomePerson() {
 }
 
 const me = new SomePerson();
-console.log(me.talk());
 console.log(me); // here, the talk() is directly VISIBLE in the object
+console.log(me.talk());
 this.age = 12;
 console.log(me); // the age is does not change in SomePerson
 
