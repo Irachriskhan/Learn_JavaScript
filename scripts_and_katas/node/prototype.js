@@ -59,3 +59,22 @@ console.log(you.Father());
 console.log(you.getMarried());
 const he = new Family();
 // console.log(he.getMarried());  // Return an error : undefined
+
+// Inheritance from a PURE OBJECT
+const theParent = {
+  talk() {
+    return "I like discussion!";
+  },
+};
+
+// To create a new object that will inherit theParent
+const theChild = Object.create(theParent);
+console.log(theChild.talk()); // it is the same as the following line
+console.log(theParent.talk());
+
+// OR YOU CAN DO THIS
+const theDaughter = {};
+Object.setPrototypeOf(theDaughter, theParent);
+console.log(theDaughter.talk());
+
+// We use Inheretance to copy the behavior of one Object to another One
