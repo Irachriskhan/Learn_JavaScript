@@ -78,3 +78,11 @@ Object.setPrototypeOf(theDaughter, theParent);
 console.log(theDaughter.talk());
 
 // We use Inheretance to copy the behavior of one Object to another One
+
+// Difference between __proto__ and prototype
+// __proto__ : {} is a property of every variable that points to the parent OBJECT that it inheriting from
+
+// function Object(){}
+// Object.property is the property in the constructor that contains all the stuff that will be inherited by
+// its instances. prototype and __proto__ do the same things but they are accessed differently
+// writing const me = {} is the same as const me = new Object()
