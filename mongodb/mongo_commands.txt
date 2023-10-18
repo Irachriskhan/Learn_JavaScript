@@ -1,67 +1,141 @@
 We are going to list usefull commands use in mongosh environment
 
-Show all databases: type => show dbs
+1. Show all databases: type => show dbs
 
-Change or Create a Database : type => use database_name
+2. Change or Create a Database : type => use database_name
     ** You can create a collection using the createCollection() database method.
     example:  
-    db.createCollection("posts")        // where post is the collection name
+        db.createCollection("posts")        // where post is the collection name
     
 
     ** You can also create a collection during the insert process.
     example: 
-    db.posts.insertOne(object) 
+        db.posts.insertOne(object) 
 
-Insert Documents
+3. Insert Documents
     ** To insert a single document, use the insertOne() method.
     exapmple: 
-    db.posts.insertOne({
-        title: "Post Title 1",
-        body: "Body of post.",
-        category: "News",
-        likes: 1,
-        tags: ["news", "events"],
-        date: Date()
-    })
+        db.posts.insertOne({
+            title: "Post Title 1",
+            body: "Body of post.",
+            category: "News",
+            likes: 1,
+            tags: ["news", "events"],
+            date: Date()
+        })
 
     ** To insert multiple documents at once, use the insertMany() method.
     example:
-    db.posts.insertMany([  
-        {
-            title: "Post Title 2",
-            body: "Body of post.",
-            category: "Event",
-            likes: 2,
-            tags: ["news", "events"],
-            date: Date()
-        },
-        {
-            title: "Post Title 3",
-            body: "Body of post.",
-            category: "Technology",
-            likes: 3,
-            tags: ["news", "events"],
-            date: Date()
-        }
-    ])
+        db.posts.insertMany([  
+            {
+                title: "Post Title 2",
+                body: "Body of post.",
+                category: "Event",
+                likes: 2,
+                tags: ["news", "events"],
+                date: Date()
+            },
+            {
+                title: "Post Title 3",
+                body: "Body of post.",
+                category: "Technology",
+                likes: 3,
+                tags: ["news", "events"],
+                date: Date()
+            }
+        ])
 
-Find Data:
+4. Find Data:
     ** To select data from a collection in MongoDB, we can use the find() method.
     example:
-    db.posts.find()         // If left empty, all documents will be returned.
+        db.posts.find()         // If left empty, all documents will be returned.
 
     ** To select only one document, we can use the findOne() method.
     example: 
-    db.posts.findOne()      // If left empty, it will return the first document it finds.
+        db.posts.findOne()      // If left empty, it will return the first document it finds.
 
-Querying Data:
+5. Querying Data:
     ** To query, or filter, data we can include a query in our find() or findOne() methods.
     example:
-    db.posts.find( {category: "News"} ) // retrieve document of category of News only
+        db.posts.find( {category: "News"} ) // retrieve document of category of News only
 
-Projection
-** By specifying the properties to display We use a 1 to include a field and 0 to exclude a field
-example:
-db.posts.find({}, {_id: 0, title: 1, date: 1}) // only date and title will be visible
-db.posts.find({}, {category: 0}) // all properties are visible except category 
+6. Projection
+    ** By specifying the properties to display We use a 1 to include a field and 0 to exclude a field
+    example:
+        db.posts.find({}, {_id: 0, title: 1, date: 1}) // only date and title will be visible
+        db.posts.find({}, {category: 0}) // all properties are visible except category 
 
+7. Update Document
+    ** To update an existing document we can use the updateOne() or updateMany() methods
+    The first parameter is a query object to define which document or documents should be updated.
+    The second parameter is an object defining the updated data.
+
+    The updateOne() method will update the first document that is found matching the provided query.
+    examples: 
+        db.posts.updateOne( { title: "Post Title 1" }, { $set: { likes: 2 } } ) 
+    The updateMany() method will update all documents that match the provided query.
+    Update likes on all documents by 1. For this we will use the $inc (increment) operator:
+    examples:
+        db.posts.updateMany({}, { $inc: { likes: 1 } })
+
+    ** Insert if not found
+        If you would like to insert the document if it is not found, you can use the upsert option.
+        example:
+        db.posts.updateOne( 
+            { title: "Post Title 5" }, 
+            {
+                $set: 
+                {
+                    title: "Post Title 5",
+                    body: "Body of post.",
+                    category: "Event",
+                    likes: 5,
+                    tags: ["news", "events"],
+                    date: Date()
+                }
+            }, 
+            { upsert: true }
+        )
+8. Delete Documents: 
+    ** We can delete documents by using the methods deleteOne() or deleteMany().
+    The deleteOne() method will delete the first document that matches the query provided.
+    example:
+        db.posts.deleteOne({ title: "Post Title 5" })
+    The deleteMany() method will delete all documents that match the query provided.
+    example: 
+        db.posts.deleteMany({ category: "Technology" })
+
+9. MongoDB Query Operators
+    ** Comparison: The following operators can be used in queries to compare values:
+        $eq: Values are equal
+        $ne: Values are not equal
+        $gt: Value is greater than another value
+        $gte: Value is greater than or equal to another value
+        $lt: Value is less than another value
+        $lte: Value is less than or equal to another value
+        $in: Value is matched within an array
+    ** Logical: The following operators can logically compare multiple queries.
+        $and: Returns documents where both queries match
+        $or: Returns documents where either query matches
+        $nor: Returns documents where both queries fail to match
+        $not: Returns documents where the query does not match
+
+    ** Evaluation: The following operators assist in evaluating documents.
+        $regex: Allows the use of regular expressions when evaluating field values
+        $text: Performs a text search
+        $where: Uses a JavaScript expression to match documents
+
+10. MongoDB Update Operators
+    ** There are many update operators that can be used during document updates.
+        Fields : The following operators can be used to update fields:
+            $currentDate: Sets the field value to the current date
+            $inc: Increments the field value
+            $rename: Renames the field
+            $set: Sets the value of a field
+            $unset: Removes the field from the document
+
+        Array : The following operators assist with updating arrays.
+            $addToSet: Adds distinct elements to an array
+            $pop: Removes the first or last element of an array
+            $pull: Removes all elements from an array that match the query
+            $push: Adds an element to an array
