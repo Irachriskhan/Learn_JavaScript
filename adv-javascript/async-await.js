@@ -31,14 +31,35 @@ async function start() {
 start();
 
 // =============================================================================
-// se fetch() together with async await
+// use fetch() together with async await
 
 async function searchData() {
-  const data = await fetch(
-    "https://api.weather.gov/gridpoints/OKX/35,35/forecast"
-  );
-  const result = await data.json();
-  console.log(result.properties);
+  try {
+    const data = await fetch(
+      "http://api.weatherapi.com/v1/current.json?key=1fec8a7bd648422790b104441233010&q=Kigali&aqi=yes"
+    );
+    const result = await data.json();
+    console.log(result.properties);
+  } catch (err) {
+    console.log(err, "Cannot access the API.");
+  }
 }
 
 searchData();
+
+// NOTE
+// 1. Async and await must be used together. Exceptions: JS Modules and Chrome DevTools Console
+// 2. async / await only affects Promise receiver
+// 3. You can use await in any function that returns a Promise
+// 4. Any function can be converted to async
+// Example:
+const me = {
+  // sayHello(){
+  async sayHello() {
+    return `I am Chris.`;
+  },
+};
+
+me.sayHello(); // Promise { `I am Chris.`}
+// 5. All async functions
+// 6. Error handleling with try/catch
