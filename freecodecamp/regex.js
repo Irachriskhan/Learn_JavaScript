@@ -72,7 +72,6 @@ huRegex.test(humStr); // true
 // you to define a group of characters you wish to match by placing them inside square ([ and ]) brackets.
 // For example, you want to match bag, big, and bug but not bog.
 //  You can create the regex /b[aiu]g/ to do this. The [aiu] is the character class that will only match the characters a, i, or u.
-
 let bigStr = "big";
 let bagStr = "bag";
 let bugStr = "bug";
@@ -83,10 +82,8 @@ bagStr.match(bgRegex);
 bugStr.match(bgRegex);
 bogStr.match(bgRegex);
 // In order, the four match calls would return the values ["big"], ["bag"], ["bug"], and null.
-
 // Use a character class with vowels (a, e, i, o, u) in your regex vowelRegex to find all the vowels in the string quoteSample.
 // Note: Be sure to match both upper- and lowercase vowels.
-
 let quoteSample =
   "Beware of bugs in the above code; I have only proved it correct, not tried it.";
 let vowelRegex = /[aeiou]/gi;
@@ -96,7 +93,6 @@ let solution = quoteSample.match(vowelRegex); // Change this line
 // You saw how you can use character sets to specify a group of characters to match, but that's a lot of
 // typing when you need to match a large range of characters (for example, every letter in the alphabet).
 // Fortunately, there is a built-in feature that makes this short and simple.
-
 // Match all the letters in the string quoteSample. Note: Be sure to match both uppercase and lowercase letters.
 // let quoteSample = "The quick brown fox jumps over the lazy dog.";
 let alphabetRegex = /[a-z]/gi;
@@ -117,7 +113,6 @@ jennyStr.match(newRegex);
 // the characters you do not want to match.
 // For example, /[^aeiou]/gi matches all characters that are not a vowel. Note that characters like ., !, [, @, / and
 // white space are matched - the negated vowel character set only excludes the vowel characters.
-
 // Create a single regex that matches all characters that are not a number or a vowel. Remember to
 // include the appropriate flags in the regex.
 let quoteSample1 = "3 blind mice.";
@@ -132,17 +127,14 @@ let result1 = quoteSample1.match(myRegex1);
 // Because of the +, it would also find a single match in aabc and return ["aa"].
 // If it were instead checking the string abab, it would find two matches and
 // return ["a", "a"] because the a characters are not in a row - there is a b between them.
-
 let difficultSpelling = "Mississippi";
 let myRegex2 = /s+/gi;
 let result2 = difficultSpelling.match(myRegex2);
 
 // Match Characters that Occur Zero or More Times
-
 // The last challenge used the plus + sign to look for characters that occur one or more times. There's also an option that matches
 //  characters that occur zero or more times.
 // The character to do this is the asterisk or star: *.
-
 let soccerWord = "gooooooooal!";
 let gPhrase = "gut feeling";
 let oPhrase = "over the moon";
@@ -150,22 +142,18 @@ let goRegex = /go*/;
 soccerWord.match(goRegex);
 gPhrase.match(goRegex);
 oPhrase.match(goRegex);
-
 // For this challenge, chewieQuote has been initialized as the string Aaaaaaaaaaaaaaaarrrgh! behind the scenes.
 // Create a regex chewieRegex that uses the * character to match an uppercase A character immediately followed
 // by zero or more lowercase a characters in chewieQuote.
 // Your regex does not need flags or character classes, and it should not match any of the other quotes.
-
 const chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
 let chewieRegex = /Aa*/;
 let result3 = chewieQuote.match(chewieRegex);
 
 // Find Characters with Lazy Matching
-
 // In regular expressions, a greedy match finds the longest possible part of a string that fits the regex
 // pattern and returns it as a match. The alternative is called a lazy match, which finds the smallest
 // possible part of the string that satisfies the regex pattern.
-
 // You can apply the regex /t[a-z]*i/ to the string "titanic". This regex is basically a pattern that starts
 // with t, ends with i, and has some letters in between.
 // Regular expressions are by default greedy, so the match would return ["titani"]. It finds the largest
@@ -174,7 +162,6 @@ let result3 = chewieQuote.match(chewieRegex);
 // regex of /t[a-z]*?i/ returns ["ti"].
 // Note: Parsing HTML with regular expressions should be avoided, but pattern matching an HTML string with regular
 // expressions is completely fine.
-
 // Fix the regex /<.*>/ to return the HTML tag <h1> and not the text "<h1>Winter is coming</h1>". Remember
 // the wildcard . in a regular expression matches any character.
 let text = "<h1>Winter is coming</h1>";
@@ -182,22 +169,18 @@ let myRegex4 = /<[a-z0-9]*?>/;
 let result4 = text.match(myRegex);
 
 // Find One or More Criminals in a Hunt
-
 // Time to pause and test your new regex writing skills. A group of criminals escaped from jail and ran away,
 // but you don't know how many. However, you do know that they stay close together when they are around other
 // people. You are responsible for finding all of the criminals at once.
 // The regex /z+/ matches the letter z when it appears one or more times in a row.
-
 // Write a greedy regex that finds one or more criminals within a group of other people. A criminal is
 // represented by the capital letter C.
 let reCriminals = /C+/;
 
 // Match Beginning String Patterns
-
 // In an earlier challenge, you used the caret character (^) inside a character set to create a negated
 // character set in the form [^thingsThatWillNotBeMatched].
 // Outside of a character set, the caret is used to search for patterns at the beginning of strings.
-
 let firstString = "Ricky is first and can be found.";
 let firstRegex = /^Ricky/;
 firstRegex.test(firstString); // true
@@ -207,7 +190,6 @@ firstRegex.test(notFirst); // false
 // Match Ending String Patterns
 // There is also a way to search for patterns at the end of strings.
 // You can search the end of strings using the dollar sign character $ at the end of the regex.
-
 let theEnding = "This is a never ending story";
 let storyRegex = /story$/;
 storyRegex.test(theEnding); // True
@@ -230,7 +212,6 @@ longHand.test(numbers);
 shortHand.test(numbers);
 longHand.test(varNames);
 shortHand.test(varNames);
-
 // Use the shorthand character class \w to count the number of alphanumeric characters in various quotes and strings.
 let quoteSample2 = "The five boxing wizards jump quickly.";
 let alphabetRegexV2 = /\w/gi;
@@ -252,3 +233,56 @@ sentence.match(shortHand1);
 let quoteSample3 = "The five boxing wizards jump quickly.";
 let nonAlphabetRegex = /\W/gi; // Change this line
 let result6 = quoteSample3.match(nonAlphabetRegex).length;
+
+// Match All Numbers
+// The shortcut to look for digit characters is \d, with a lowercase d. This is equal to the character class
+// [0-9], which looks for a single character of any number between zero and nine.
+// Use the shorthand character class \d to count how many digits are in movie titles. Written out numbers
+// ("six" instead of 6) do not count.
+let movieName = "2001: A Space Odyssey";
+let numRegex = /\d/g; // Change this line
+let result7 = movieName.match(numRegex).length;
+
+// Match All Non-Numbers
+// You can also search for non-digits using a similar shortcut that uses an uppercase D instead.
+// The shortcut to look for non-digit characters is \D. This is equal to the character class [^0-9],
+// which looks for a single character that is not a number between zero and nine.
+let movieName2 = "2001: A Space Odyssey";
+let noNumRegex = /\D/g; // Change this line
+let result8 = movieName2.match(noNumRegex).length;
+
+// Restrict Possible Usernames
+// Usernames are used everywhere on the internet. They are what give users a unique identity on their
+// favorite sites.
+// You need to check all the usernames in a database. Here are some simple rules that users
+// have to follow when creating their username.
+
+// 1. Usernames can only use alphanumeric characters.
+// 2. The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
+// 3. Username letters can be lowercase and uppercase.
+// 4. Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i; // Change this line
+let result9 = userCheck.test(username);
+
+// ^ - start of input
+// [a-z] - first character is a letter
+// [a-z]+ - following characters are letters
+// \d*$ - input ends with 0 or more digits
+// | - or
+// ^[a-z] - first character is a letter
+// \d\d+ - following characters are 2 or more digits
+// $ - end of input
+
+let username1 = "JackOfAllTrades";
+const userCheck1 = /^[a-z]([0-9]{2,}|[a-z]+\d*)$/i;
+let result10 = userCheck.test(username1);
+
+// ^ - start of input
+// [a-z] - first character is a letter
+// [0-9]{2,} - ends with two or more numbers
+// | - or
+// [a-z]+ - has one or more letters next
+// \d* - and ends with zero or more numbers
+// $ - end of input
+// i - ignore case of input
