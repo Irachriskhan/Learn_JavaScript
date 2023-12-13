@@ -26,7 +26,7 @@ img {
 }
 
 .book h4 {
-    letter-spacing: 5px;
+    letter-spacing: none;
 }
 
 .book p {
@@ -48,5 +48,6 @@ img {
 @media screen and (min-width: 768px) {
     .booklist {
         grid-template-columns: repeat(3, 1fr);
+        /* align-items: start; */
     }
 }
