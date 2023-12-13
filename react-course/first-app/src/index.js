@@ -5,53 +5,29 @@ import ReactDom from "react-dom";
 import "./index.css"; // import css file
 
 // Setup vars
-const firstBook = {
-  title: "Presentation of VoY Project",
-  img: "../images/image2.png",
-  authFirstName: "Christophe",
-  authLastName: "Irakoze",
-};
+const books = [
+  {
+    title: "Presentation of VoY Project",
+    img: "../images/image2.png",
+    authFirstName: "Christophe",
+    authLastName: "Irakoze",
+  },
+  {
+    title: "Mahama Livelyhood",
+    img: "../images/image1.png",
+    authFirstName: "Khan",
+    authLastName: "Aganze",
+  },
+];
 
-const secondBook = {
-  title: "Mahama Livelyhood",
-  img: "../images/image1.png",
-  authFirstName: "Khan",
-  authLastName: "Aganze",
-};
-
+const names = ["John", "Paul", "Khan", "Markus", "Hansen"];
+const newNames = names.map((name) => {
+  return <h3>{name}</h3>;
+});
 // Nested Components
 // we place the arguments where we render the function, not where is declared
 function Booklist() {
-  return (
-    <section className="booklist">
-      <Book
-        img={firstBook.img}
-        title={firstBook.title}
-        authFirstName={firstBook.authFirstName}
-        authLastName={firstBook.authLastName}
-      />
-      <Book
-        img={secondBook.img}
-        title={secondBook.title}
-        authFirstName={secondBook.authFirstName}
-        authLastName={secondBook.authLastName}
-      />
-      <Book
-        img={secondBook.img}
-        title={secondBook.title}
-        authFirstName={secondBook.authFirstName}
-        authLastName={secondBook.authLastName}
-      >
-        <p>
-          {/* <h3>Description</h3> */}
-          This book talk about reflection on the approach of of Writting the
-          report
-        </p>
-      </Book>
-      <Book coAuthor="Kristofer" />
-      <Book title="Call Me May Be" number={22} />
-    </section>
-  );
+  return <section className="booklist">{newNames}</section>;
 }
 
 {
